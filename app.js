@@ -2,12 +2,16 @@ const taskInput = document.querySelector("#task");
 const submit = document.querySelector("#task-input");
 const taskList = document.querySelector(".tasks");
 const clearBtn = document.querySelector(".clear");
+const filter = document.getElementById('filter');
 
 loadEventListener ();
 function loadEventListener(){
 submit.addEventListener("submit", addTask);
 taskList.addEventListener("click",removeTask);
 clearBtn.addEventListener("click", clearTask);
+filter.addEventListener("keyup", filterTasks);
+
+
 }
 
 function addTask(e){
@@ -18,7 +22,7 @@ function addTask(e){
     } else{
     const li = document.createElement("li");
     li.textContent = taskInput.value;
-    
+    li.className = "task-item";
     const link = document.createElement("a");
     link.className = "delete-item";
     link.innerHTML = '<i class="fas fa-times"></i>';
@@ -44,4 +48,20 @@ function clearTask(){
     while (taskList.firstChild){
         taskList.removeChild(taskList.firstChild);
     }
+}
+
+function filterTasks(){
+    const text = filter.value.toLowerCase();
+    const tasks = document.querySelectorAll(".task-item");
+    console.log(tasks);
+    tasks.forEach(function(task){
+        const item = task.firstChild.textContent;
+       
+        if (item.toLowerCase().indexOf(text) !=-1){
+            task.style.display = "block";
+        }else {
+            task.style.display = "none";
+        }
+    })
+
 }
