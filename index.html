@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Ziqi's Task Form</title>
+</head>
+<body>
+    <fieldset class="task-form">
+       <legend class="title">Task Form</legend>
+       <div class="new-task">
+           <form id="task-input">
+               <input type="text" id="task" name="task" placeholder="Enter your task here"> 
+               <input type="submit" value="Add" class="submit">
+           </form>
+           
+      </div>
+      <div class="task-list">
+          <h3>Task List</h3>
+          <div class = search-task>
+              <input type="text" id="filter" placeholder="Search">
+          </div>
+           <ul class="tasks">
+
+           </ul>
+
+           <div class="clear-button">
+               <button class="clear">Clear Tasks</button>
+
+           </div>
+          
+      </div>
+
+
+
+    </fieldset>
+    <script src="app.js"></script>
+</body>
+</html>
