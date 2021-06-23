@@ -18,6 +18,9 @@
     box-shadow:4px 4px 2px 1px rgba(0, 0, 255, .2);
     
 }
+.task-form legend{
+    color:rgb(15, 105, 93);
+}
 
 .task-form:hover{
     transform: scale(1.2);
