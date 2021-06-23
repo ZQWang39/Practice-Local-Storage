@@ -51,6 +51,7 @@ function clearTask(){
     //taskList.innerHTML = "";
     while (taskList.firstChild){
         taskList.removeChild(taskList.firstChild);
+        clearTasksFromLocalStorage();
     }
 }
 
@@ -122,4 +123,8 @@ function removeTaskFromLocalStorage(taskItem){
        localStorage.setItem("tasks",JSON.stringify(tasks));
     })
 
+}
+
+function clearTasksFromLocalStorage(){
+    localStorage.clear();
 }
