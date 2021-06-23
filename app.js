@@ -6,6 +6,7 @@ const filter = document.getElementById('filter');
 
 loadEventListener ();
 function loadEventListener(){
+document.addEventListener("DOMContentLoaded", getTasks);
 submit.addEventListener("submit", addTask);
 taskList.addEventListener("click",removeTask);
 clearBtn.addEventListener("click", clearTask);
@@ -70,15 +71,36 @@ function filterTasks(){
 
 function storeTaskInLocalStorage(task){
 
-    console.log(task);
+    //console.log(task);
     let tasks;
     if ( localStorage.getItem("tasks") === null){
         tasks = [];
         
     }else{
        tasks = JSON.parse( localStorage.getItem("tasks"));
-       console.log(tasks);
+       //console.log(tasks);
     }
     tasks.push(task);
     localStorage.setItem('tasks',JSON.stringify(tasks));
+}
+
+function getTasks(){
+    let tasks;
+    if ( localStorage.getItem("tasks") === null){
+        tasks = []; 
+    }else{
+       tasks = JSON.parse( localStorage.getItem("tasks"));
+    }
+    tasks.forEach(function(task){
+        const li = document.createElement("li");
+        li.textContent = task;
+        li.className = "task-item";
+        const link = document.createElement("a");
+        link.className = "delete-item";
+        link.innerHTML = '<i class="fas fa-times"></i>';
+        li.appendChild(link);
+        taskList.appendChild(li);
+
+    })
+
 }
